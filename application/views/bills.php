@@ -239,8 +239,7 @@
                     <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
                         <div class="col-md-9">
                             <div class="d-flex justify-content-between">
-                                <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();">พิมพ์ใบแจ้งหนี้ฉบับนี้</button>
-                                <a href="<?php echo site_url('invoices/del/') . $query->bills_id; ?>" onclick="return confirm('ยืนยัน')" class="btn btn-danger font-weight-bold">ลบใบแจ้งหนี้ฉบับนี้</a>
+                                <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();">พิมพ์ใบเสร็จรับเงิน</button>
                             </div>
                         </div>
                     </div>

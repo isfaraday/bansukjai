@@ -205,7 +205,7 @@
                     <!--end::Card body-->
                     <!--begin::Actions-->
                     <div class="card-footer d-flex justify-content-end py-6 px-9">
-                        <a href="<?php echo site_url('room/elects/') . $query->room_id; ?>" class="btn btn-success btn-active-light-primary me-2">ประวัติการบันทึกเลขมิเตอร์ไฟฟ้า</a>
+                        <!-- <a href="<?php echo site_url('room/elects/') . $query->room_id; ?>" class="btn btn-success btn-active-light-primary me-2">ประวัติการบันทึกเลขมิเตอร์ไฟฟ้า</a> -->
                         <button type="reset" class="btn btn-light btn-active-light-primary me-2">ยกเลิก</button>
                         <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">บันทึกข้อมูล</button>
                     </div>

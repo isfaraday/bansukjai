@@ -116,8 +116,8 @@
         <div class="row g-5 g-xl-8">
             <!--begin::Tables Widget 11-->
             <div class="card mb-5 mb-xl-8">
-                 <!--begin::Header-->
-                 <div class="card-header border-0 pt-5">
+                <!--begin::Header-->
+                <div class="card-header border-0 pt-5">
                     <div class="card-toolbar">
                         <a href="<?php echo base_url('invoices/add') ?>" class="btn btn-sm btn-light-primary">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
@@ -176,7 +176,14 @@
                                             <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php echo $row->bills_pay; ?></a>
                                         </td>
                                         <td>
-                                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php echo $row->bills_result; ?></a>
+                                            <?php if ($row->bills_result == 0) { ?>
+                                                <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php echo $row->bills_result; ?></a>
+                                                <!--begin::Hint-->
+                                                <div class="form-text">กดดูใบแจ้งหนี้ <br> แล้วกดบันทึกใบแจ้งหนี้</div>
+                                                <!--end::Hint-->
+                                            <?php } else { ?>
+                                                <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php echo $row->bills_result; ?></a>
+                                            <?php } ?>
                                         </td>
                                         <td>
                                             <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php if ($row->bills_status == '0') {
@@ -187,7 +194,11 @@
                                         </td>
                                         <td class="text-end">
                                             <a href="<?php echo site_url('invoices/bill/') . $row->bills_id; ?>" class="btn btn-bg-light btn-color-muted btn-active-light-primary btn-sm px-4 me-2">ดูใบแจ้งหนี้</a>
-                                            <a href="<?php echo site_url('invoices/bills/') . $row->bills_id; ?>" class="btn btn-bg-primary btn-color-white btn-active-light-primary btn-sm px-4">ใบเสร็จรับเงิน</a>
+                                            <?php if ($row->bills_status == 0) { ?>
+                                                <a href="<?php echo site_url('invoices/receipt/') . $row->bills_id; ?>" class="btn btn-success btn-color-white btn-active-light-primary btn-sm px-4 me-2">สร้างใบเสร็จรับเงิน</a>
+                                            <?php } else if ($row->bills_status == 1) { ?>
+                                                <a href="<?php echo site_url('invoices/bills/') . $row->bills_id; ?>" class="btn btn-bg-primary btn-color-white btn-active-light-primary btn-sm px-4">ดูใบเสร็จรับเงิน</a>
+                                            <?php } ?>
                                         </td>
                                 </tbody>
                                 <!--end::Table body-->

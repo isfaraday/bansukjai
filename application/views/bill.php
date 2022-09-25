@@ -21,6 +21,7 @@
                     </div>
                 </div>
             </div>
+            <?php if ($permission <= '2') { ?>
             <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-lg-1">
                 <span class="menu-link py-3">
                     <span class="menu-title">ห้องพัก</span>
@@ -101,6 +102,7 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
         <!--end::Menu-->
     </div>
@@ -119,6 +121,7 @@
             <h1 class="d-flex text-dark fw-bolder my-1 fs-3">ใบแจ้งหนี้ (Invoice)</h1>
             <!--end::Title-->
         </div>
+        <?php if ($permission <= '2') { ?>
         <!--begin::Actions-->
         <div class="d-flex align-items-center py-1">
             <!--begin::Button-->
@@ -138,7 +141,7 @@
                 <input type="hidden" name="bills_status" value="<?php echo $query->bills_status; ?>">
                 <input type="hidden" name="bills_pay" value="<?php echo $query->bills_pay; ?>">
                 <input type="hidden" name="bills_create" value="<?php echo $query->bills_create; ?>">
-                <input type="submit" class="btn btn-primary font-weight-bold me-3" value="บันทึกใบเสร็จ" />
+                <input type="submit" class="btn btn-primary font-weight-bold me-3" value="บันทึกใบแจ้งหนี้" />
             </form>
             <!--end::Button-->
             <!--begin::Button-->
@@ -146,6 +149,7 @@
             <!--end::Button-->
         </div>
         <!--end::Actions-->
+        <?php } ?>
         <!--end::Page title-->
     </div>
     <!--end::Container-->
@@ -250,7 +254,9 @@
                         <div class="col-md-9">
                             <div class="d-flex justify-content-between">
                                 <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();">พิมพ์ใบแจ้งหนี้ฉบับนี้</button>
+                                <?php if ($permission <= '2') { ?>
                                 <a href="<?php echo site_url('invoices/del/') . $query->bills_id; ?>" onclick="return confirm('ยืนยัน')" class="btn btn-danger font-weight-bold">ลบใบแจ้งหนี้ฉบับนี้</a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

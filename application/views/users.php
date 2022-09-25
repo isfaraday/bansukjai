@@ -168,6 +168,68 @@
                                                                                                                     echo "ผู้จัดการบริษัท";
                                                                                                                 } else if ($row->admin_permission == '2') {
                                                                                                                     echo "ผู้จัดการสาขา";
+                                                                                                                } else if ($row->admin_permission == '3') {
+                                                                                                                    echo "ผู้เช่า";
+                                                                                                                } ?></a>
+                                        </td>
+                                        <td>
+                                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php if ($row->active == '1') {
+                                                                                                                    echo "ใช้งานอยู่";
+                                                                                                                } else if ($row->active == '0'){
+                                                                                                                    echo "ไม่ได้ใช้งาน";
+                                                                                                                } ?></a>
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="<?php echo site_url('users/del/') . $row->admin_id; ?>" onclick="return confirm('ยืนยัน')" class="btn btn-danger btn-active-light-primary btn-sm px-4 me-2">ลบผู้ใช้</a>
+                                            <a href="<?php echo site_url('users/edit/') . $row->admin_id; ?>" class="btn btn-bg-light btn-color-muted btn-active-color-primary btn-sm px-4 me-2">แก้ไขข้อมูล</a>
+                                        </td>
+                                </tbody>
+                                <!--end::Table body-->
+                            <?php } ?>
+                        </table>
+                        <!--end::Table-->
+                    </div>
+                    <!--end::Table container-->
+                </div>
+                <!--begin::Body-->
+                 <!--begin::Body-->
+                 <div class="card-body py-3">
+                    <!--begin::Table container-->
+                    <div class="table-responsive">
+                        <!--begin::Table-->
+                        <table class="table align-middle gs-0 gy-4">
+                            <!--begin::Table head-->
+                            <thead>
+                                <tr class="fw-bolder text-muted bg-light">
+                                    <th class="ps-4 min-w-150px rounded-start">Username</th>
+                                    <th class="min-w-200px">ชื่อนามสกุล</th>
+                                    <th class="min-w-150px">ตำแหน่ง</th>
+                                    <th class="min-w-100px">สถานะ</th>
+                                    <th class="min-w-200px text-end rounded-end"></th>
+                                </tr>
+                            </thead>
+                            <!--end::Table head-->
+                            <!--begin::Table body-->
+                            <?php foreach ($query2 as $row) { ?>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $row->username; ?></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php echo $row->admin_fullname; ?></a>
+                                        </td>
+                                        <td>
+                                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php if ($row->admin_permission == '1') {
+                                                                                                                    echo "ผู้จัดการบริษัท";
+                                                                                                                } else if ($row->admin_permission == '2') {
+                                                                                                                    echo "ผู้จัดการสาขา";
+                                                                                                                } else if ($row->admin_permission == '3') {
+                                                                                                                    echo "ผู้เช่า";
                                                                                                                 } ?></a>
                                         </td>
                                         <td>

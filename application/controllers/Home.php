@@ -25,6 +25,7 @@ class Home extends CI_Controller {
 		$data['room'] = $this->roommodel->showdata();
 		$data['empty'] = $this->roommodel->emptyroom();
 		$data['bills'] = $this->invoicesmodel->notpay();
+		$data['debt'] = $this->invoicesmodel->notpay_member();
 		$this->load->view('home', $data);
 	}
 }

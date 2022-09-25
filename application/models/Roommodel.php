@@ -17,6 +17,18 @@ class Roommodel extends CI_Model
         $this->db->insert('room', $data);
     }
 
+    public function addtype()
+    {
+        // print_r($_POST);
+        // exit();
+
+        $data = array(
+            'roomtype_name' => $this->input->post('roomtype_name'),
+            'roomtype_rate' => $this->input->post('roomtype_rate')
+        );
+        $this->db->insert('roomtype', $data);
+    }
+
     public function showdata()
     {
         $this->db->order_by('room.room_number', 'ASC');
@@ -57,6 +69,7 @@ class Roommodel extends CI_Model
     public function deldata($room_id)
     {
         $this->db->delete('room', array('room_id' => $room_id));
+        
     }
 
     public function booking($room_id)
@@ -109,7 +122,7 @@ class Roommodel extends CI_Model
     {
         // $this->db->select('room.*,member.member_id,member.member_idcard,member.member_fullname,member.member_address,member.member_phone,member.member_create');
 
-        $this->db->select('member.*,room.room_number,roomtype.*');
+        $this->db->select('member.*,room.*,roomtype.*');
         $this->db->from('member');
         $this->db->join('room', 'room.room_id=member.room_id');
         $this->db->join('roomtype', 'room.roomtype_id=roomtype.roomtype_id');

@@ -261,7 +261,17 @@
                                         <div class="fw-bold fs-5 text-gray-600 text-dark mt-3 mb-5">ลงชื่อ........................................ผู้เช่า</div>
                                         <!--end::Text-->
                                         <!--begin::Text-->
-                                        <div class="fw-bold fs-5 text-gray-600 text-dark mt-3 mb-5">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(........................................)</div>
+                                        <div class="fw-bold fs-5 text-gray-600 text-dark mt-3 mb-5">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(&nbsp&nbsp&nbsp&nbsp <?php echo $query->member_fullname;?> &nbsp&nbsp&nbsp&nbsp)</div>
+                                        <!--end::Text-->
+                                    </div>
+                                    <!--end::Body-->
+                                    <!--begin::Body-->
+                                    <div class="m-0">
+                                        <!--begin::Text-->
+                                        <div class="fw-bold fs-5 text-gray-600 text-dark mt-3 mb-5">ลงชื่อ........................................ผู้ให้เช่า</div>
+                                        <!--end::Text-->
+                                        <!--begin::Text-->
+                                        <div class="fw-bold fs-5 text-gray-600 text-dark mt-3 mb-5">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(&nbsp&nbsp&nbsp&nbsp <?php echo $_SESSION['admin_fullname'];?> &nbsp&nbsp&nbsp&nbsp)</div>
                                         <!--end::Text-->
                                     </div>
                                     <!--end::Body-->

@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-lg-1">
+            <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item here show menu-lg-down-accordion me-lg-1">
                 <span class="menu-link py-3">
                     <span class="menu-title">ห้องพัก</span>
                     <span class="menu-arrow d-lg-none"></span>
@@ -36,11 +36,11 @@
                         </a>
                     </div>
                     <div class="menu-item">
-                        <a class="menu-link py-3" href="<?php echo base_url('room') ?>">
+                        <a class="menu-link active py-3" href="<?php echo base_url('room/type') ?>">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="menu-title">เพิ่มห้องพัก</span>
+                            <span class="menu-title">ตั้งค่าห้องพัก</span>
                         </a>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item here show menu-lg-down-accordion me-lg-1">
+            <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-lg-1">
                 <span class="menu-link py-3">
                     <span class="menu-title">ผู้ดูแลระบบ</span>
                     <span class="menu-arrow d-lg-none"></span>
@@ -89,14 +89,6 @@
                                 <span class="bullet bullet-dot"></span>
                             </span>
                             <span class="menu-title">ผู้ใช้ระบบ</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link active py-3" href="<?php echo base_url('users/add') ?>">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">เพิ่มผู้ใช้ระบบ</span>
                         </a>
                     </div>
                 </div>
@@ -116,7 +108,7 @@
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column me-3">
             <!--begin::Title-->
-            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">เพิ่มผู้ใช้ระบบ</h1>
+            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">ตั้งค่าห้องพัก</h1>
             <!--end::Title-->
         </div>
         <!--end::Page title-->
@@ -134,7 +126,7 @@
             <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
                 <!--begin::Card title-->
                 <div class="card-title m-0">
-                    <h3 class="fw-bolder m-0">เพิ่มผู้ใช้</h3>
+                    <h3 class="fw-bolder m-0">ตั้งค่าห้อง</h3>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -142,17 +134,17 @@
             <!--begin::Content-->
             <div id="kt_account_settings_profile_details" class="collapse show">
                 <!--begin::Form-->
-                <form id="kt_account_profile_details_form" class="form" action="<?php echo site_url('users/adding'); ?>" method="post" onsubmit="return checkPassword()">
+                <form id="kt_account_profile_details_form" class="form" action="<?php echo site_url('room/addtype'); ?>" method="post">
                     <!--begin::Card body-->
                     <div class="card-body border-top p-9">
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-bold fs-6">Username</label>
+                            <label class="col-lg-4 col-form-label required fw-bold fs-6">ประเภทห้อง</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="username" class="form-control form-control-lg form-control-solid" placeholder="" value="" required />
+                                <input type="text" name="roomtype_name" class="form-control form-control-lg form-control-solid" placeholder="เช่น ห้องพัดลม แอร์ เตียงเดียว เตียงคู่" value="" required/>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -160,68 +152,14 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-bold fs-6">รหัสผ่าน</label>
+                            <label class="col-lg-4 col-form-label required fw-bold fs-6">ราคา</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="password" name="password" id="password_1" class="form-control form-control-lg form-control-solid" placeholder="" value="" required />
+                                <input type="text" name="roomtype_rate" class="form-control form-control-lg form-control-solid" placeholder="xx.xx บาท" value="" required/>
                             </div>
                             <!--end::Col-->
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="row mb-6">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-bold fs-6">ยืนยันรหัสผ่าน</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8 fv-row">
-                                <input type="password" name="confirmpassword" id="password_2" class="form-control form-control-lg form-control-solid" placeholder="" value="" required />
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <script>
-                            function checkPassword() {
-                                let password_1 = document.getElementById("password_1");
-                                let password_2 = document.getElementById("password_2");
-                                if (password_1.value != password_2.value) {
-                                    alert("กรุณากรอกรหัสผ่าน และยืนยันรหัสผ่านให้ตรงกัน");
-                                    return false;
-                                }
-                            }
-                        </script>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="row mb-6">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-bold fs-6">ชื่อนามสกุล</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8 fv-row">
-                                <input type="text" name="admin_fullname" class="form-control form-control-lg form-control-solid" placeholder="" value="" required />
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="row mb-6">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-bold fs-6">ตำแหน่ง</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8 fv-row">
-                                <!--begin::Input-->
-                                <select name="admin_permission" data-control="select2" data-placeholder="เลือกตำแหน่ง..." class="form-select form-select-solid form-select-lg" required>
-                                    <option value="">เลือกตำแหน่ง...</option>
-                                    <option value="1">ผู้จัดการบริษัท</option>
-                                    <option value="2">ผู้จัดการสาขา</option>
-                                    <option value="3">ผู้เช่า</option>
-                                </select>
-                                <!--end::Input-->
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <input type="hidden" name="active" value="1" />
                         <!--end::Input group-->
                     </div>
                     <!--end::Card body-->

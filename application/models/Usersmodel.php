@@ -12,6 +12,16 @@ class Usersmodel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    function showdata2()
+    {
+        $this->db->order_by('admin_id', 'ASC');
+        $this->db->select('*');
+        $this->db->from('admin');
+        $this->db->where('admin_permission', 3);
+        $query = $this->db->get();
+        return $query->result();
+    }
     
     public function login($username, $password)
     {

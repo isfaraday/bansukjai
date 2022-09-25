@@ -38,9 +38,9 @@ class Customer extends CI_Controller {
 		redirect('customer','refresh');
 	}
 
-	public function out($member_id)
+	public function out()
 	{
-		$this->customermodel->checkout($member_id);
+		$this->customermodel->checkout();
 		redirect('room','refresh');
 	}
 

@@ -155,23 +155,23 @@
                             </thead>
                             <!--end::Table head-->
                             <!--begin::Table body-->
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="d-flex justify-content-start flex-column">
-                                                    <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $query->room_number; ?></a>
-                                                </div>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex justify-content-start flex-column">
+                                                <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $query->room_number; ?></a>
                                             </div>
-                                        </td>
-                                        <td>
-                                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php echo $query->member_fullname; ?></a>
-                                        </td>
-                                        <td>
-                                            <a class="text-end"><?php echo $query->member_create; ?></a>
-                                        </td>
-                                </tbody>
-                                <!--end::Table body-->
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"><?php echo $query->member_fullname; ?></a>
+                                    </td>
+                                    <td>
+                                        <a class="text-end"><?php echo $query->member_create; ?></a>
+                                    </td>
+                            </tbody>
+                            <!--end::Table body-->
                         </table>
                         <!--end::Table-->
                         <!--begin::Table-->
@@ -200,8 +200,23 @@
                                     </td>
                                     </td>
                                     <td class="text-end">
-                                        <a href="<?php echo site_url('customer/out/') . $query->member_id; ?>" onclick="return confirm('ยืนยัน')" class="btn btn-danger btn-active-light-primary btn-sm px-4 me-2">ย้ายออก</a>
-                                        <a href="<?php echo site_url('room/lease/') . $query->member_id; ?>" class="btn btn-bg-light btn-color-muted btn-active-color-primary btn-sm px-4 me-2">สัญญาเช่า</a>
+                                        <!--begin::Button-->
+                                        <form class="form" action="<?php echo site_url('customer/out'); ?>" method="post">
+                                            <input type="hidden" name="room_id" value="<?php echo $query->room_id; ?>">
+                                            <input type="hidden" name="roomtype_id" value="<?php echo $query->roomtype_id; ?>">
+                                            <input type="hidden" name="room_number" value="<?php echo $query->room_number; ?>">
+                                            <input type="hidden" name="room_details" value="<?php echo $query->room_details; ?>">
+                                            <input type="hidden" name="room_status" value="1">
+                                            <input type="hidden" name="member_id" value="<?php echo $query->member_id; ?>">
+                                            <input type="hidden" name="member_idcard" value="<?php echo $query->member_idcard; ?>">
+                                            <input type="hidden" name="member_fullname" value="<?php echo $query->member_fullname; ?>">
+                                            <input type="hidden" name="member_address" value="<?php echo $query->member_address; ?>">
+                                            <input type="hidden" name="member_phone" value="<?php echo $query->member_phone; ?>">
+                                            <input type="hidden" name="member_create" value="<?php echo $query->member_create; ?>">
+                                            <input type="submit" onclick="return confirm('ยืนยัน')" class="btn btn-danger btn-active-light-primary btn-sm px-4 me-2" value="ย้ายออก" />
+                                            <a href="<?php echo site_url('room/lease/') . $query->member_id; ?>" class="btn btn-bg-light btn-color-muted btn-active-color-primary btn-sm px-4 me-2">สัญญาเช่า</a>
+                                        </form>
+                                        <!--end::Button-->
                                     </td>
                             </tbody>
                             <!--end::Table body-->

@@ -22,6 +22,7 @@ class Users extends CI_Controller
     public function index()
     {
         $data['query'] = $this->usersmodel->showdata();
+        $data['query2'] = $this->usersmodel->showdata2();
         $this->load->view('users', $data);
     }
 
@@ -55,7 +56,7 @@ class Users extends CI_Controller
                 $this->session->set_userdata($userdata);
                 redirect('home');
             } else {
-                $this->session->set_flashdata('error', 'Invalid email or password');
+                $this->session->set_flashdata('error', 'Invalid username or password');
                 redirect('users/login');
             }
 

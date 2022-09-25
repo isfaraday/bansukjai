@@ -154,4 +154,19 @@ class Invoicesmodel extends CI_Model
         return $query->result();
     }
 
+    public function notpay_member()
+    {
+        $t =$_SESSION['username'];
+
+        $this->db->order_by('room_number', 'ASC');
+        $this->db->select('*');
+        $this->db->from('room');
+        $this->db->join('bills', 'room.room_id=bills.room_id');
+        $this->db->join('member', 'member.member_id=bills.member_id');
+        $this->db->where('bills_status', '0');
+        $this->db->where('room_number', $t);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

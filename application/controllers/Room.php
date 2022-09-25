@@ -32,9 +32,20 @@ class Room extends CI_Controller {
 		$this->load->view('addroom',$data);
 	}
 
+	public function type()
+	{
+		$this->load->view('roomtype');
+	}
+
     public function adding()
 	{
 		$this->roommodel->adding();
+		redirect('room','refresh');
+	}
+
+	public function addtype()
+	{
+		$this->roommodel->addtype();
 		redirect('room','refresh');
 	}
 

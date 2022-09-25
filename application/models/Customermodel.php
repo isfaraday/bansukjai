@@ -38,18 +38,34 @@ class Customermodel extends CI_Model
         $this->db->update('member', $data);
     }
 
-    public function checkout($member_id)
+    public function checkout()
     {
-        // print_r($_POST);
-        // exit();
-
-        $data = array(
-            'room_status' => $this->input->post('')
+        $data1 = array(
+            'roomtype_id' => $this->input->post('roomtype_id'),
+            'room_number' => $this->input->post('room_number'),
+            'room_details' => $this->input->post('room_details'),
+            'room_status' => $this->input->post('room_status')
         );
         $this->db->where('room_id', $this->input->post('room_id'));
-        $this->db->update('room', $data);
+        $this->db->update('room', $data1);
 
-        $this->db->delete('member', array('member_id' => $member_id));
+        $data2 = array(
+            'room_id' => $this->input->post('0'),
+            'member_idcard' => $this->input->post('member_idcard'),
+            'member_fullname' => $this->input->post('member_fullname'),
+            'member_address' => $this->input->post('member_address'),
+            'member_phone' => $this->input->post('member_phone')
+        );
+        $this->db->where('member_id', $this->input->post('member_id'));
+        $this->db->update('member', $data2);
+
+        // $data = array(
+        //     'room_status' => $this->input->post('1')
+        // );
+        // $this->db->where('room_id', $this->input->post('room_id'));
+        // $this->db->update('room', $data);
+
+        // $this->db->delete('member', array('room_id' => $room_id));
     }
 
 }

@@ -123,6 +123,9 @@
                         <span class="text-muted mt-1 fw-bold fs-7"><?php echo count($query); ?> ห้อง</span>
                     </h3>
                     <div class="card-toolbar">
+                        <a href="<?php echo base_url('room/type') ?>" class="btn btn-sm btn-light-primary">
+                            <!--end::Svg Icon-->ตั้งค่าห้องพัก
+                        </a>
                         <a href="<?php echo base_url('room/add') ?>" class="btn btn-sm btn-light-primary">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -180,6 +183,9 @@
                                                                                                                 } else if ($row->room_status == '0') {
                                                                                                                     echo "ไม่ว่าง ( $row->member_fullname )";
                                                                                                                 } ?></a>
+                                            <!-- <?php if ($row->room_status == '0') { ?>
+                                                <a href="<?php echo site_url('room/elect/') . $row->room_id; ?>" class="btn btn-success btn-color-white btn-active-light-primary btn-sm px-4 me-2">เลขมิเตอร์ไฟฟ้า</a>
+                                            <?php  } ?> -->
                                         </td>
                                         <td class="text-end">
                                             <a href="<?php echo site_url('room/elect/') . $row->room_id; ?>" class="btn btn-success btn-color-white btn-active-light-primary btn-sm px-4 me-2">เลขมิเตอร์ไฟฟ้า</a>

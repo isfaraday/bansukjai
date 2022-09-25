@@ -21,6 +21,7 @@
                     </div>
                 </div>
             </div>
+            <?php if ($permission <= '2') { ?>
             <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-lg-1">
                 <span class="menu-link py-3">
                     <span class="menu-title">ห้องพัก</span>
@@ -101,6 +102,24 @@
                     </div>
                 </div>
             </div>
+            <?php } else if ($permission == '3') { ?>
+                <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item here show menu-lg-down-accordion me-lg-1">
+                <span class="menu-link py-3">
+                    <span class="menu-title">ผู้ใช้ระบบ</span>
+                    <span class="menu-arrow d-lg-none"></span>
+                </span>
+                <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
+                    <div class="menu-item">
+                        <a class="menu-link active py-3" href="<?php echo base_url('users/edit/') . $query->admin_id; ?>">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title"><?php echo $query->username; ?></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
         <!--end::Menu-->
     </div>
@@ -150,11 +169,19 @@
                             <!--begin::Label-->
                             <label class="col-lg-4 col-form-label required fw-bold fs-6">Username</label>
                             <!--end::Label-->
+                            <?php if ($permission <= '2') { ?>
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
                                 <input type="text" name="username" class="form-control form-control-lg form-control-solid" placeholder="" value="<?php echo $query->username; ?>" required />
                             </div>
                             <!--end::Col-->
+                            <?php } else if ($permission == '3') { ?>
+                                <!--begin::Col-->
+                            <div class="col-lg-8 fv-row">
+                                <input type="text" name="username" class="form-control form-control-lg form-control-solid" placeholder="" value="<?php echo $query->username; ?>" readonly />
+                            </div>
+                            <!--end::Col-->
+                            <?php } ?>
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
@@ -194,6 +221,7 @@
                                     <option value="">เลือกตำแหน่ง...</option>
                                     <option value="1" <?php if ($query->admin_permission == "1") echo 'selected="selected"'; ?>>ผู้จัดการบริษัท</option>
                                     <option value="2" <?php if ($query->admin_permission == "2") echo 'selected="selected"'; ?>>ผู้จัดการสาขา</option>
+                                    <option value="3" <?php if ($query->admin_permission == "3") echo 'selected="selected"'; ?>>ผู้เช่า</option>
                                 </select>
                                 <!--end::Input-->
                             </div>

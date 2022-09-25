@@ -254,12 +254,12 @@
                                 <div class="row">
                                     <!--begin::Col-->
                                     <div class="col-lg-6 fv-row">
-                                        <input type="number" name="unit" id="unit" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="x บาทต่อหน่วย" value="<?php echo $query->unit; ?>" min="0" />
+                                        <input type="number" name="unit" id="unit" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="x บาทต่อหน่วย" value="<?php echo $query->unit; ?>" min="0" readonly/>
                                     </div>
                                     <!--end::Col-->
                                     <!--begin::Col-->
                                     <div class="col-lg-6 fv-row">
-                                        <input type="number" name="bills_electric" class="form-control form-control-lg form-control-solid" placeholder="xx.xx บาท" value="<?php echo ($query->unit2 - $query->unit1) * $query->unit; ?>" />
+                                        <input type="number" name="bills_electric" class="form-control form-control-lg form-control-solid" placeholder="xx.xx บาท" value="<?php echo ($query->unit2 - $query->unit1) * $query->unit; ?>" readonly/>
                                     </div>
                                     <!--end::Col-->
                                 </div>
@@ -275,7 +275,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="bills_water" class="form-control form-control-lg form-control-solid" placeholder="ขั้นต่ำ 200" value="200" />
+                                <input type="text" name="bills_water" class="form-control form-control-lg form-control-solid" placeholder="ขั้นต่ำ 200" value="200" readonly/>
                             </div>
                             <!--end::Col-->
                         </div>
